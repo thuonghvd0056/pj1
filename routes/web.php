@@ -17,7 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('shop.index');
 });
-
+Route::get('/contact', function () {
+    return view('shop.contact');
+});
+Route::get('/about', function () {
+    return view('shop.about');
+});
 Route::get('/404',function (){
     return view('error.404');
 });

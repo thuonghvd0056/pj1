@@ -11,9 +11,9 @@
         <div class="collapse navbar-collapse justify-content-md-center" id="probootstrap-navbar">
             <ul class="navbar-nav">
                 <li class="nav-item" style="margin-top: 30px; margin-bottom: 30px;"><a
-                            class="nav-link text-uppercase pb_letter-spacing-2" href="#">Home</a></li>
+                            class="nav-link text-uppercase pb_letter-spacing-2" href="/">Home</a></li>
                 <li class="nav-item" style="margin-top: 30px; margin-bottom: 30px;"><a
-                            class="nav-link text-uppercase pb_letter-spacing-2" href="#">About</a></li>
+                            class="nav-link text-uppercase pb_letter-spacing-2" href="/about">About</a></li>
                 <li class="nav-item dropdown text-uppercase pb_letter-spacing-2"
                     style="margin-top: 30px; margin-bottom: 30px;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -55,7 +55,7 @@
                 <li class="nav-item" style="margin-top: 30px; margin-bottom: 30px;"><a
                             class="nav-link text-uppercase pb_letter-spacing-2" href="#">Pet Spa</a></li>
                 <li class="nav-item" style="margin-top: 30px; margin-bottom: 30px;"><a
-                            class="nav-link text-uppercase pb_letter-spacing-2" href="#">Contact</a></li>
+                            class="nav-link text-uppercase pb_letter-spacing-2" href="/contact">Contact</a></li>
             </ul>
         </div>
     </div>
@@ -63,71 +63,82 @@
     {{--<li><a data-toggle="modal" data-target="#loginModal" href="#" style="color: #9A8D7B"><span class="glyphicon glyphicon-log-in"></span> <i class="fas fa-user-circle"></i></a></li>--}}
     {{--</ul>--}}
     <div>
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+        <button onclick="showLogin()" style="width:auto;">Sign Up</button>
 
-        <div id="id01" class="modal">
+        <div id="login" class="modal" style="display: none">
             {{--<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>--}}
-            <div class="login-wrap">
-                <div class="login-html">
-                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign
-                        In</label>
-                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign
-                        Up</label>
-                    <div class="login-form">
-                        <div class="sign-in-htm">
-                            <div class="group">
-                                <label for="user" class="label">Username</label>
-                                <input id="user" type="text" class="input" required placeholder="Username"
-                                       pattern=".{6,}" title=" Must contain at least one number and one uppercase and
-                                       lowercase letter, and at least 8 or more characters">
-                            </div>
-                            <div class="group">
-                                <label for="pass" class="label">Password</label>
-                                <input id="pass" type="password" class="input" data-type="password" required
-                                       placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"/>
-                            </div>
-                            <div class="group">
-                                <input id="check" type="checkbox" class="check" checked>
-                                <label for="check"><span class="icon"></span> Keep me Signed in</label>
-                            </div>
-                            <div class="group">
-                                <input type="submit" class="button" value="Sign In">
-                            </div>
-                            <div class="hr"></div>
-                            <div class="foot-lnk">
-                                <a href="#forgot">Forgot Password?</a>
-                            </div>
-                        </div>
-                        <div class="sign-up-htm">
-                            <div class="group">
-                                <label for="user" class="label">Username</label>
-                                <input id="user" type="text" class="input" required placeholder="Username"
-                                       pattern=".{6,}">
-                            </div>
-                            <div class="group">
-                                <label for="pass" class="label">Password</label>
-                                <input id="pass" type="password" class="input" data-type="password" required
-                                       placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"/>
-                            </div>
-                            <div class="group">
-                                <label for="pass" class="label">Repeat Password</label>
-                                <input id="pass" type="password" class="input" data-type="password" required
-                                       placeholder="Repeat Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"/>
-                            </div>
-                            <div class="group">
-                                <label for="pass" class="label">Email Address</label>
-                                <input id="pass" type="email" class="input" required placeholder="Email">
-                            </div>
-                            <div class="group">
-                                <input type="submit" class="button" value="Sign Up">
-                            </div>
-                            <div class="hr"></div>
-                            <div class="foot-lnk">
-                                <label for="tab-1">Already Member?</label>
-                            </div>
+            <div class="login-form">
+                <form action="/examples/actions/confirmation.php" method="post">
+                    <h2 class="text-center">SIGN IN</h2>
+                    <div class="form-group">
+                        <div class="input-group">
+
+                            <input type="text" class="form-control" name="username" placeholder="Username" required="required">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="input-group">
+
+                            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+                        <a href="#" class="pull-right">Forgot Password?</a>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary login-btn btn-block">SIGN IN</button>
+                    </div>
+
+                    <div class="or-seperator"><i>or</i></div>
+                    <p class="text-center">Login with your social media account</p>
+                    <div class="text-center social-btn">
+                        <a href="#" class="btn btn-primary"><i></i>&nbsp; Facebook</a>
+                        <a href="#" class="btn btn-danger"><i></i>&nbsp; Google</a>
+                    </div>
+                   <br><br> <p class="text-center text-muted small">Don't have an account? <a href="#" onclick="showRegister()">Sign up here!</a></p>
+                </form>
                 </div>
+        </div>
+        <div class="modal" id="register">
+            <div class="login-form">
+                <form action="/examples/actions/confirmation.php" method="post">
+                    <h2 class="text-center">SIGN UP</h2>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="email" class="form-control" name="username" placeholder="Email" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="confirm_password" name="password" placeholder="confirm Password" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group label_001" >
+                        <label class=""> Gender: </label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Male</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Female</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Other</label>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary login-btn btn-block">SIGN UP</button>
+                    </div>
+                    <div class="or-seperator"><i></i></div>
+                    <div class="clearfix">
+                        <a href="#" class="pull-right">Forgot Password?</a>
+                    </div>
+                    <br><br<p class="text-center text-muted small">Already have an account? <a href="#" onclick="showLogin()">Sign in here!</a></p>
+                </form>
             </div>
         </div>
     </div>
@@ -167,194 +178,57 @@
         z-index: 999;
     }
 
-    body {
-        margin: 0;
-        color: #448c01;
-        background: #c8c8c8;
-        font: 600 16px/18px 'Open Sans', sans-serif;
-    }
-
-    *, :after, :before {
-        box-sizing: border-box
-    }
-
-    .clearfix:after, .clearfix:before {
-        content: '';
-        display: table
-    }
-
-    .clearfix:after {
-        clear: both;
-        display: block
-    }
-
-    a {
-        color: inherit;
-        text-decoration: none
-    }
-
-    .login-wrap {
-        width: 100%;
-        margin: auto;
-        max-width: 525px;
-        min-height: 720px;
-        position: relative;
-        /*background:url(https://i.pinimg.com/736x/85/60/d7/8560d77b609b2703597abf83fd9e92aa--timeline-photos-cute-puppies.jpg) no-repeat center;*/
-        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
-    }
-
-    .login-html {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        padding: 90px 70px 50px 70px;
-        background: rgba(40, 57, 101, .8);
-    }
-
-    .login-html .sign-in-htm,
-    .login-html .sign-up-htm {
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        position: absolute;
-        transform: rotateY(180deg);
-        backface-visibility: hidden;
-        transition: all .4s linear;
-    }
-
-    .login-html .sign-in,
-    .login-html .sign-up,
-    .login-form .group .check {
-        display: none;
-    }
-
-    .login-html .tab,
-    .login-form .group .label,
-    .login-form .group .button {
-        text-transform: uppercase;
-    }
-
-    .login-html .tab {
-        font-size: 22px;
-        margin-right: 15px;
-        padding-bottom: 5px;
-        margin: 0 15px 10px 0;
-        display: inline-block;
-        border-bottom: 2px solid transparent;
-    }
-
-    .login-html .sign-in:checked + .tab,
-    .login-html .sign-up:checked + .tab {
-        color: #fff;
-        border-color: #1161ee;
-    }
-
     .login-form {
-        min-height: 345px;
-        position: relative;
-        perspective: 1000px;
-        transform-style: preserve-3d;
+        width: 385px;
+        margin: 30px auto;
     }
-
-    .login-form .group {
+    .login-form form {
         margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
     }
 
-    .login-form .group .label,
-    .login-form .group .input,
-    .login-form .group .button {
-        width: 100%;
-        color: #fff;
-        display: block;
-    }
-
-    .login-form .group .input,
-    .login-form .group .button {
-        border: none;
-        padding: 15px 20px;
-        border-radius: 25px;
-        background: rgba(255, 255, 255, .1);
-    }
-
-    .login-form .group input[data-type="password"] {
-        text-security: circle;
-        -webkit-text-security: circle;
-    }
-
-    .login-form .group .label {
-        color: #aaa;
-        font-size: 12px;
-    }
-
-    .login-form .group .button {
-        background: #1161ee;
-    }
-
-    .login-form .group label .icon {
-        width: 15px;
-        height: 15px;
+    .form-control, .login-btn {
+        min-height: 38px;
         border-radius: 2px;
-        position: relative;
-        display: inline-block;
-        background: rgba(255, 255, 255, .1);
     }
 
-    .login-form .group label .icon:before,
-    .login-form .group label .icon:after {
-        content: '';
-        width: 10px;
-        height: 2px;
-        background: #fff;
-        position: absolute;
-        transition: all .2s ease-in-out 0s;
+    .login-btn {
+        font-size: 15px;
+        font-weight: bold;
     }
-
-    .login-form .group label .icon:before {
-        left: 3px;
-        width: 5px;
-        bottom: 6px;
-        transform: scale(0) rotate(0);
+    .social-btn .btn {
+        border: none;
+        margin: 10px 3px 0;
+        opacity: 1;
     }
-
-    .login-form .group label .icon:after {
-        top: 6px;
-        right: 0;
-        transform: scale(0) rotate(0);
+    .social-btn .btn:hover {
+        opacity: 0.9;
     }
-
-    .login-form .group .check:checked + label {
-        color: #fff;
+    .social-btn .btn-primary {
+        background: #507cc0;
     }
-
-    .login-form .group .check:checked + label .icon {
-        background: #1161ee;
+    .social-btn .btn-info {
+        background: #64ccf1;
     }
-
-    .login-form .group .check:checked + label .icon:before {
-        transform: scale(1) rotate(45deg);
+    .social-btn .btn-danger {
+        background: #df4930;
     }
-
-    .login-form .group .check:checked + label .icon:after {
-        transform: scale(1) rotate(-45deg);
-    }
-
-    .login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm {
-        transform: rotate(0);
-    }
-
-    .login-html .sign-up:checked + .tab + .login-form .sign-up-htm {
-        transform: rotate(0);
-    }
-
-    .hr {
-        height: 2px;
-        margin: 60px 0 50px 0;
-        background: rgba(255, 255, 255, .2);
-    }
-
-    .foot-lnk {
+    .or-seperator {
+        margin-top: 20px;
         text-align: center;
+        border-top: 1px solid #ccc;
+    }
+    .or-seperator i {
+        padding: 0 10px;
+        background: #f7f7f7;
+        position: relative;
+        top: -11px;
+        z-index: 1;
     }
 
 </style>
@@ -368,4 +242,30 @@
             modal.style.display = "none";
         }
     }
+
+    function showRegister() {
+        document.getElementById("login").style.display = 'none';
+        document.getElementById("register").style.display = 'block';
+
+    }
+
+    function showLogin() {
+        document.getElementById("login").style.display = 'block';
+        document.getElementById("register").style.display = 'none';
+
+    }
+
+    var password = document.getElementById("password")
+        , confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword(){
+        if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Password không trùng khớp.");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
 </script>
