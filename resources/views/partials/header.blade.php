@@ -64,8 +64,7 @@
     {{--</ul>--}}
     <div>
         <button onclick="showLogin()" style="width:auto;">Sign Up</button>
-
-        <div id="login" class="modal" style="display: none">
+        <div id="login" class="modal" style="width: 100%;">
             {{--<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>--}}
             <div class="login-form">
                 <form action="/examples/actions/confirmation.php" method="post">
@@ -137,11 +136,11 @@
                     <div class="clearfix">
                         <a href="#" class="pull-right">Forgot Password?</a>
                     </div>
-                    <br><br<p class="text-center text-muted small">Already have an account? <a href="#" onclick="showLogin()">Sign in here!</a></p>
+                    <br><br><p class="text-center text-muted small">Already have an account? <a href="#" onclick="showLogin()">Sign in here!</a></p>
                 </form>
             </div>
         </div>
-    </div>
+</div>
 </nav>
 <style>
     .navbar-nav li:hover > ul.dropdown-menu {
@@ -189,6 +188,7 @@
         padding: 30px;
     }
     .login-form h2 {
+        color: #007bff;
         margin: 0 0 15px;
     }
 
@@ -234,12 +234,15 @@
 </style>
 <script>
     // Get the modal
-    var modal = document.getElementById('id01');
+    var login = document.getElementById('login');
+    var register = document.getElementById('register');
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        if (event.target == login) {
+            login.style.display = "none";
+        } else if(event.target == register){
+            register.style.display = "none";
         }
     }
 
